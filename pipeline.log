@@ -1,0 +1,28 @@
+2025-10-18 19:15:18,979 - INFO - Starting ML pipeline
+2025-10-18 19:15:18,980 - INFO - Loading data from data/lung_cancer.csv
+2025-10-18 19:15:19,019 - INFO - Data loaded successfully: (309, 16)
+2025-10-18 19:15:19,019 - INFO - load_data took 0.04s
+2025-10-18 19:15:19,033 - INFO - Starting data preprocessing
+2025-10-18 19:15:20,884 - INFO - Data preprocessing completed: (309, 15)
+2025-10-18 19:15:20,884 - INFO - preprocess_data took 1.85s
+2025-10-18 19:15:20,884 - INFO - Starting feature selection
+2025-10-18 19:15:21,039 - INFO - Feature selection completed: (309, 12)
+2025-10-18 19:15:21,039 - INFO - select_features took 0.16s
+2025-10-18 19:15:21,041 - INFO - Starting model training
+2025-10-18 19:15:22,940 - INFO - train_models took 1.90s
+2025-10-18 19:15:22,949 - INFO - Pipeline completed successfully
+2025-10-18 19:15:22,951 - INFO - run took 3.97s
+2025-10-19 17:37:03,798 - INFO - Starting ML pipeline
+2025-10-19 17:37:03,798 - INFO - Loading data from data/lung_cancer.csv
+2025-10-19 17:37:03,813 - INFO - Data loaded successfully: (309, 16)
+2025-10-19 17:37:03,813 - INFO - load_data took 0.02s
+2025-10-19 17:37:03,829 - INFO - Starting data preprocessing
+2025-10-19 17:37:05,537 - INFO - Data preprocessing completed: (309, 15)
+2025-10-19 17:37:05,537 - INFO - preprocess_data took 1.71s
+2025-10-19 17:37:05,537 - INFO - Starting feature selection
+2025-10-19 17:37:05,694 - INFO - Feature selection completed: (309, 12)
+2025-10-19 17:37:05,694 - INFO - select_features took 0.16s
+2025-10-19 17:37:05,694 - INFO - Starting model training
+2025-10-19 17:37:07,514 - INFO - train_models took 1.82s
+2025-10-19 17:37:07,514 - INFO - Pipeline completed successfully
+2025-10-19 17:37:07,514 - INFO - run took 3.72s
