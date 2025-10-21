@@ -8,8 +8,7 @@ class MLConfig(BaseSettings):
     DATA_PATH: str = "data/lung_cancer.csv"
     TARGET_COLUMN: str = "LUNG_CANCER"
     
-    # Execution settings - Force CPU on Windows
-    DEVICE: str = "cpu"  # Windows doesn't support RAPIDS GPU libraries
+    DEVICE: str = "cpu"
     N_JOBS: int = 4
     RANDOM_STATE: int = 42
     
@@ -52,12 +51,11 @@ class MLConfig(BaseSettings):
     @field_validator("DEVICE", mode="before")
     @classmethod
     def validate_device(cls, v):
-        # Force CPU on Windows since RAPIDS doesn't support Windows
         import platform
         if platform.system() == "Windows":
             return "cpu"
         v = str(v).strip().lower()
-        return v if v in ["cpu", "gpu"] else "cpu"
+        return "cpu" if v in ["cpu", "gpu"] else "cpu"
 
 def get_config() -> MLConfig:
     return MLConfig()
