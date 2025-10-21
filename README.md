@@ -141,7 +141,7 @@ Model training (model-wise)
 
 Operation	CPU (4 cores)	
 
-# parallel implementation provides nearly 3x performance improvement over sequential execution,reducing pipeline time from ~11.79 seconds to 3.97 seconds.
+parallel implementation provides nearly 3x performance improvement over sequential execution,reducing pipeline time from ~11.79 seconds to 3.97 seconds.
 
 # Sample Output:
 
