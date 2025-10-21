@@ -1,4 +1,6 @@
 import logging
+import sys
+import os
 from src.pipeline.runner import PipelineRunner
 from src.utils.logger import setup_logging
 
@@ -8,19 +10,16 @@ def main():
     logger = logging.getLogger(__name__)
     
     try:
-        # Run pipeline
+        # Initialize pipeline runner
         runner = PipelineRunner()
         results = runner.run()
         
-        # Print results
-        print("\n=== Pipeline Results ===")
-        for result in results:
-            name, acc, prec, rec, f1, model = result
-            print(f"{name}: Accuracy={acc:.3f}, Precision={prec:.3f}, Recall={rec:.3f}, F1={f1:.3f}")
-            
+        print("pipeline execution completed successfully")
+        
     except Exception as e:
-        logger.error(f"Pipeline failed: {e}")
-        raise
+        logger.error(f"pipeline failed: {e}")
+        print(f"Error: {e}")
+        sys.exit(1)
 
 if __name__ == "__main__":
     main()

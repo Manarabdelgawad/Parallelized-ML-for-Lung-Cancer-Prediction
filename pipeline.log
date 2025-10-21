@@ -1,28 +1,88 @@
-2025-10-18 19:15:18,979 - INFO - Starting ML pipeline
-2025-10-18 19:15:18,980 - INFO - Loading data from data/lung_cancer.csv
-2025-10-18 19:15:19,019 - INFO - Data loaded successfully: (309, 16)
-2025-10-18 19:15:19,019 - INFO - load_data took 0.04s
-2025-10-18 19:15:19,033 - INFO - Starting data preprocessing
-2025-10-18 19:15:20,884 - INFO - Data preprocessing completed: (309, 15)
-2025-10-18 19:15:20,884 - INFO - preprocess_data took 1.85s
-2025-10-18 19:15:20,884 - INFO - Starting feature selection
-2025-10-18 19:15:21,039 - INFO - Feature selection completed: (309, 12)
-2025-10-18 19:15:21,039 - INFO - select_features took 0.16s
-2025-10-18 19:15:21,041 - INFO - Starting model training
-2025-10-18 19:15:22,940 - INFO - train_models took 1.90s
-2025-10-18 19:15:22,949 - INFO - Pipeline completed successfully
-2025-10-18 19:15:22,951 - INFO - run took 3.97s
-2025-10-19 17:37:03,798 - INFO - Starting ML pipeline
-2025-10-19 17:37:03,798 - INFO - Loading data from data/lung_cancer.csv
-2025-10-19 17:37:03,813 - INFO - Data loaded successfully: (309, 16)
-2025-10-19 17:37:03,813 - INFO - load_data took 0.02s
-2025-10-19 17:37:03,829 - INFO - Starting data preprocessing
-2025-10-19 17:37:05,537 - INFO - Data preprocessing completed: (309, 15)
-2025-10-19 17:37:05,537 - INFO - preprocess_data took 1.71s
-2025-10-19 17:37:05,537 - INFO - Starting feature selection
-2025-10-19 17:37:05,694 - INFO - Feature selection completed: (309, 12)
-2025-10-19 17:37:05,694 - INFO - select_features took 0.16s
-2025-10-19 17:37:05,694 - INFO - Starting model training
-2025-10-19 17:37:07,514 - INFO - train_models took 1.82s
-2025-10-19 17:37:07,514 - INFO - Pipeline completed successfully
-2025-10-19 17:37:07,514 - INFO - run took 3.72s
+2025-10-21 18:22:10,292 - INFO - Loading data
+2025-10-21 18:22:10,292 - INFO - Loading data from data/lung_cancer.csv
+2025-10-21 18:22:10,292 - INFO - Data loaded successfully: (309, 16)
+2025-10-21 18:22:10,292 - INFO - Columns: ['GENDER', 'AGE', 'SMOKING', 'YELLOW_FINGERS', 'ANXIETY', 'PEER_PRESSURE', 'CHRONIC DISEASE', 'FATIGUE', 'ALLERGY', 'WHEEZING', 'ALCOHOL CONSUMING', 'COUGHING', 'SHORTNESS OF BREATH', 'SWALLOWING DIFFICULTY', 'CHEST PAIN', 'LUNG_CANCER']
+2025-10-21 18:22:10,292 - INFO - Data types:
+GENDER                    object
+AGE                      float64
+SMOKING                  float64
+YELLOW_FINGERS           float64
+ANXIETY                  float64
+PEER_PRESSURE            float64
+CHRONIC DISEASE          float64
+FATIGUE                  float64
+ALLERGY                  float64
+WHEEZING                 float64
+ALCOHOL CONSUMING        float64
+COUGHING                 float64
+SHORTNESS OF BREATH      float64
+SWALLOWING DIFFICULTY    float64
+CHEST PAIN               float64
+LUNG_CANCER               object
+dtype: object
+2025-10-21 18:22:10,292 - INFO - Missing values:
+GENDER                   0
+AGE                      7
+SMOKING                  3
+YELLOW_FINGERS           2
+ANXIETY                  3
+PEER_PRESSURE            4
+CHRONIC DISEASE          3
+FATIGUE                  4
+ALLERGY                  9
+WHEEZING                 4
+ALCOHOL CONSUMING        8
+COUGHING                 6
+SHORTNESS OF BREATH      5
+SWALLOWING DIFFICULTY    6
+CHEST PAIN               1
+LUNG_CANCER              0
+dtype: int64
+2025-10-21 18:22:10,292 - INFO - load_data took 0.00s (Thread: MainThread, Process ID: 7884)
+2025-10-21 18:22:10,292 - INFO - Dataset loaded: 309 rows, 16 columns
+2025-10-21 18:22:10,292 - INFO - Preparing features 
+2025-10-21 18:22:10,292 - INFO - Target encoded: 2 classes
+2025-10-21 18:22:10,292 - INFO - Features shape: (309, 15)
+2025-10-21 18:22:10,292 - INFO - Target encoded: 2 classes
+2025-10-21 18:22:10,292 - INFO - Preprocessing features
+2025-10-21 18:22:10,292 - INFO - Preprocessing config: encoding_columns=[0, -1], imputation=mean
+2025-10-21 18:22:10,292 - INFO - Starting data preprocessing
+2025-10-21 18:22:10,292 - INFO - Input data shape: (309, 15), dtype: object
+2025-10-21 18:22:10,292 - INFO - Converting object array to string for safe processing
+2025-10-21 18:22:10,292 - WARNING - Error converting to numeric: could not convert string to float: np.str_('missing')
+2025-10-21 18:22:10,292 - WARNING - Error converting to numeric: could not convert string to float: np.str_('missing')
+2025-10-21 18:22:10,292 - WARNING - Error converting to numeric: could not convert string to float: np.str_('missing')
+2025-10-21 18:22:10,292 - WARNING - Error converting to numeric: could not convert string to float: np.str_('missing')
+2025-10-21 18:22:10,300 - WARNING - Error converting to numeric: could not convert string to float: np.str_('missing')
+2025-10-21 18:22:10,301 - WARNING - Error converting to numeric: could not convert string to float: np.str_('missing')
+2025-10-21 18:22:10,301 - WARNING - Error converting to numeric: could not convert string to float: np.str_('missing')
+2025-10-21 18:22:10,301 - WARNING - Error converting to numeric: could not convert string to float: np.str_('missing')
+2025-10-21 18:22:10,301 - WARNING - Error converting to numeric: could not convert string to float: np.str_('missing')
+2025-10-21 18:22:10,301 - WARNING - Error converting to numeric: could not convert string to float: np.str_('missing')
+2025-10-21 18:22:10,301 - WARNING - Error converting to numeric: could not convert string to float: np.str_('missing')
+2025-10-21 18:22:10,301 - WARNING - Error converting to numeric: could not convert string to float: np.str_('missing')
+2025-10-21 18:22:10,301 - WARNING - Error converting to numeric: could not convert string to float: np.str_('missing')
+2025-10-21 18:22:10,301 - WARNING - Error converting to numeric: could not convert string to float: np.str_('missing')
+2025-10-21 18:22:10,303 - INFO - Data preprocessing completed: (309, 15)
+2025-10-21 18:22:10,303 - INFO - preprocess_data took 0.01s (Thread: MainThread, Process ID: 7884)
+2025-10-21 18:22:10,303 - INFO - Preprocessing completed: (309, 15) \u2192 (309, 15)
+2025-10-21 18:22:10,303 - INFO - Selecting features
+2025-10-21 18:22:10,303 - INFO - Feature selection: method=chi2, percentile=80%
+2025-10-21 18:22:10,303 - INFO - Starting feature selection using chi2
+2025-10-21 18:22:10,306 - INFO - Feature selection completed: (309, 15) -> (309, 12)
+2025-10-21 18:22:10,306 - INFO - select_features took 0.00s (Thread: MainThread, Process ID: 7884)
+2025-10-21 18:22:10,306 - INFO - Feature selection completed: 15 \u2192 12 features (20.0% reduction)
+2025-10-21 18:22:10,306 - INFO - Splitting data
+2025-10-21 18:22:10,306 - INFO - Data split: Train=(247, 12), Test=(62, 12)
+2025-10-21 18:22:10,306 - INFO - Training models
+2025-10-21 18:22:10,306 - INFO - Training 3 models: SVC, RandomForest, LogisticRegression
+2025-10-21 18:22:10,306 - INFO - Parallel jobs: 4
+2025-10-21 18:22:10,306 - INFO - Starting model training
+2025-10-21 18:22:12,092 - INFO - train_models took 1.79s (Thread: MainThread, Process ID: 7884)
+2025-10-21 18:22:12,092 - INFO - Training Results Summary:
+2025-10-21 18:22:12,092 - INFO -   SVC                  | Acc: 0.871 | Prec: 0.871 | Rec: 1.000 | F1: 0.931
+2025-10-21 18:22:12,092 - INFO -   RandomForest         | Acc: 0.871 | Prec: 0.871 | Rec: 1.000 | F1: 0.931
+2025-10-21 18:22:12,092 - INFO -   LogisticRegression   | Acc: 0.871 | Prec: 0.871 | Rec: 1.000 | F1: 0.931
+2025-10-21 18:22:12,092 - INFO - Overall - Avg Accuracy: 0.871, Best: SVC (0.871)
+2025-10-21 18:22:12,092 - INFO - Pipeline completed successfully
+2025-10-21 18:22:12,092 - INFO - run took 1.81s (Thread: MainThread, Process ID: 7884)
