@@ -1,12 +1,12 @@
-# 🏥 Lung Cancer Prediction - Parallelized ML Pipeline
+# Lung Cancer Prediction — Parallelized ML Pipeline
 
-A high-performance, parallelized machine learning pipeline for lung cancer prediction supporting CPU acceleration. Designed with a modular, production-ready architecture for scalability, maintainability, and performance.
+A high-performance, parallelized machine-learning pipeline for lung cancer prediction using demographic and symptom data, built for scalability, maintainability, and speed.
 
-📑 Table of Contents
+Table of Contents
 
 Overview
 
-Features
+Key Features
 
 Project Structure
 
@@ -16,189 +16,171 @@ Configuration
 
 Usage
 
-Models
+Models & Parameters
 
 Performance
 
 Dataset
 
-Customization
-
 Contributing
 
-🔍 Overview
+License
 
-This project implements a scalable and parallelized machine learning pipeline for predicting lung cancer risk using demographic and symptom data. It provides CPU- parallel processing acceleration for optimal speed and flexibility.
+# Overview
 
-Key Highlights
+This project offers a modular and parallelized machine learning pipeline aimed at predicting lung cancer risk from patient demographic and symptom data. It supports CPU-based parallelism to speed up computation, while preserving clean separation of modules (data loading, preprocessing, model training, evaluation).
 
-⚙️ Parallel Processing: Efficient multiprocessing using joblib and multiprocessing
+The goal is to provide a production-ready baseline that’s easy to extend, monitor, debug, or integrate into larger systems.
 
-🧩 Modular Architecture: Clean separation of components for easy extension
+# Key Features
 
-🏗️ Production Ready: Comprehensive logging, validation, and error handling
+Parallel Processing using joblib and Python’s multiprocessing
 
-🔧 Flexible Configuration: Pydantic-based environment configuration
+Modular Design: each pipeline stage is separated (loader, preprocessor, selector, trainer)
 
-# Features
+Configuration via Pydantic for type-safe, validated environment settings
 
-Automated Data Preprocessing: Encoding, imputation, normalization
+Automated Data Preprocessing: missing value imputation, encoding, normalization
 
-Feature Selection: Chi-squared feature ranking
+Feature Selection: e.g. chi-squared ranking
 
-Multiple ML Models: SVM, Random Forest, Logistic Regression
+Multiple ML Algorithms: Support Vector Machine, Random Forest, Logistic Regression
 
-Performance Monitoring: Execution time tracking for each pipeline stage
+Performance Logging: records execution time per stage
 
-Extensible Design: Easily integrate new models or preprocessing steps
+Easy Extensibility: plug in new preprocessing steps, feature selectors, or models
 
-📂 Project Structure
-Parallelized-ML/
+Project Structure
+Parallelized-ML-for-Lung-Cancer-Prediction/
 ├── config/
 │   ├── __init__.py
-│   └── settings.py          # Pydantic configuration with validation
+│   └── settings.py          # Pydantic configuration classes
 ├── data/
 │   └── lung_cancer.csv      # Dataset
 ├── src/
 │   ├── data/
-│   │   ├── loader.py        # Data loading with CPU/GPU support
-│   │   └── preprocessor.py  # Data cleaning and encoding
+│   │   ├── loader.py        # Data loading (with optional parallel support)
+│   │   └── preprocessor.py  # Imputation, encoding, normalization
 │   ├── features/
-│   │   └── selector.py      # Feature selection algorithms
+│   │   └── selector.py      # Feature selection routines
 │   ├── models/
-│   │   └── trainer.py       # Model training and evaluation
+│   │   └── trainer.py       # Model training & evaluation
 │   ├── utils/
-│   │   ├── decorators.py    # Timing and performance decorators
-│   │   └── logger.py        # Logging configuration
+│   │   ├── decorators.py    # timing, caching, etc.
+│   │   └── logger.py         # logging setup
 │   └── pipeline/
-│       └── runner.py        # Main pipeline controller
-├── tests/
-│   ├── test_data.py
-│   ├── test_models.py
-│   └── test_pipeline.py
-├── main.py                  # Application entry point
-├── requirements.txt          # Dependencies
+│       └── runner.py        # Orchestrates full pipeline
+├── main.py                   # Entry point script
+├── requirements.txt
+├── pipeline.log              # Logs created by pipeline runs
 ├── .gitignore
 └── README.md
 
-⚙️ Installation
+# Installation
+
 Prerequisites
 
 Python 3.8+
 
 pip package manager
 
-# Clone the repository
-git clone https://github.com/<your-username>/Parallelized-ML.git
-cd Parallelized-ML
+Steps
 
-# Create a virtual environment
-python -m venv venv
-source venv/bin/activate     # Linux/macOS
-venv\Scripts\activate        # Windows
-
-# Install dependencies
+git clone https://github.com/Manarabdelgawad/Parallelized-ML-for-Lung-Cancer-Prediction.git  
+cd Parallelized-ML-for-Lung-Cancer-Prediction  
+python -m venv venv  
+# On Linux/macOS:
+source venv/bin/activate  
+# On Windows:
+venv\Scripts\activate  
 pip install -r requirements.txt
 
-⚙️ Configuration
+# Configuration
 
-The project uses environment variables and Pydantic for configuration validation.
+This project uses Pydantic models and environment variables for configuration validation and flexibility.
 
-Example configuration snippet:
+Example CONFIG snippet (in code or via .env):
 
 MODELS = [
-    {"name": "SVC", "params": {"kernel": "rbf", "gamma": 0.5, "C": 1.0}},
-    {"name": "RandomForest", "params": {"n_estimators": 15}},
-    {"name": "LogisticRegression", "params": {"max_iter": 200}},
+    {
+        "name": "SVC",
+        "params": {
+            "kernel": "rbf",
+            "gamma": 0.5,
+            "C": 1.0
+        }
+    },
+    {
+        "name": "RandomForest",
+        "params": {
+            "n_estimators": 15
+        }
+    },
+    {
+        "name": "LogisticRegression",
+        "params": {
+            "max_iter": 200
+        }
+    },
 ]
 
-▶️ Usage
 
-Run the complete pipeline:
+You may also configure logging levels, parallelism settings, or add new pipelines in the configuration.
+
+# Usage
+
+To run the full pipeline:
 
 python main.py
 
-🤖 Models
 
-Model	Key Parameters	Best For
+This launches data loading → preprocessing → feature selection → model training → evaluation, logging execution times and metrics.
 
-Support Vector Classifier (SVC)	kernel=RBF, gamma=0.5, C=1.0	
-
-Random Forest Classifier	n_estimators=15	
-
+Models & Parameters
+Model	Default Parameters
+Support Vector Classifier (SVC)	kernel="rbf", gamma=0.5, C=1.0
+Random Forest	n_estimators=15
 Logistic Regression	max_iter=200
 
-⚡ Performance
+You may add or override models in the configuration file or via environment settings.
 
-Parallel Processing
+# Performance
 
-Utilizes multiple CPU cores for:
+Parallel vs Sequential comparison (4-core example):
 
-Data preprocessing (column-wise parallelization)
+Sequential mode: ~11.79 sec
 
-Feature selection (feature-wise parallelization)
+Parallel mode: ~3.97 sec
 
-Model training (model-wise parallelization)
+This yields a ~3× speedup thanks to parallelizing across data preprocessing, feature selection, and model training steps.
 
-Performance Comparison
+Parallelism is automatically adapted to the CPU environment via core detection.
 
-Execution Mode	Total Time	Speedup
-
-Sequential	~11.79s	1x
-
-Parallel (4 cores)	3.97s	3x
-
-The parallel implementation provides nearly 3x performance improvement over sequential execution, reducing pipeline time from ~11.79 seconds to 3.97 seconds.
-
-Resource Optimization
-
-Automatic CPU core detection
-
-Platform-aware parallelization (optimized for Windows/Linux)
-
-Memory-efficient processing for large datasets
-
-# Sample Output:
-
-=== Pipeline Results ===
-SVC: Accuracy=0.968, Precision=0.983, Recall=0.983, F1=0.983
-RandomForest: Accuracy=0.968, Precision=0.983, Recall=0.983, F1=0.983
-LogisticRegression: Accuracy=0.968, Precision=0.983, Recall=0.983, F1=0.983
-
-📊 Dataset
-
+# Dataset
 Lung Cancer Prediction Dataset
 
-Demographic Features
+Features include:
 
-GENDER: Patient gender (M/F)
+Demographics: GENDER, AGE
 
-AGE: Patient age
+Symptoms / Risk Factors: SMOKING, YELLOW_FINGERS, ANXIETY, PEER_PRESSURE, CHRONIC_DISEASE, FATIGUE, ALLERGY, WHEEZING, ALCOHOL_CONSUMING, COUGHING, SHORTNESS_OF_BREATH, SWALLOWING_DIFFICULTY, CHEST_PAIN
 
-Symptoms & Risk Factors
+Target: LUNG_CANCER (YES / NO)
 
-SMOKING, YELLOW_FINGERS, ANXIETY, PEER_PRESSURE, CHRONIC_DISEASE,
-FATIGUE, ALLERGY, WHEEZING, ALCOHOL_CONSUMING,
-COUGHING, SHORTNESS_OF_BREATH, SWALLOWING_DIFFICULTY, CHEST_PAIN
+You can replace or augment this dataset, provided your new data fits into the loader + preprocessing pipeline (or you extend those components).
 
-Target Variable
+# Contributing
 
-LUNG_CANCER: Cancer diagnosis (YES/NO)
+I welcome contributions! Please follow these steps:
 
-🔧 Customization
+Fork the repository
 
-Example: Add feature normalization to the preprocessing stage.
+Create a feature branch: git checkout -b feature/my-feature
 
-def normalize_features(self, X):
-    """Feature normalization using StandardScaler."""
-    from sklearn.preprocessing import StandardScaler
-    scaler = StandardScaler()
-    return scaler.fit_transform(X)
+Make your changes (with tests)
 
-# Check logs in pipeline.log for details.
+Submit a Pull Request and describe your improvements
 
-Enable debug mode by setting LOG_LEVEL=DEBUG.
+# License
 
-🤝 Contributing
-
-welcome all contributions!
+This project is licensed under the Apache License 2.0 — see the LICENSE file for details.
