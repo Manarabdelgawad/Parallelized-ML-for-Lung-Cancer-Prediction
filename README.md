@@ -129,19 +129,34 @@ Random Forest Classifier	n_estimators=15
 Logistic Regression	max_iter=200
 
 ⚡ Performance
+
 Parallel Processing
 
 Utilizes multiple CPU cores for:
 
-Data preprocessing (column-wise)
+Data preprocessing (column-wise parallelization)
 
-Feature selection (feature-wise)
+Feature selection (feature-wise parallelization)
 
-Model training (model-wise)
+Model training (model-wise parallelization)
 
-Operation	CPU (4 cores)	
+Performance Comparison
 
-parallel implementation provides nearly 3x performance improvement over sequential execution,reducing pipeline time from ~11.79 seconds to 3.97 seconds.
+Execution Mode	Total Time	Speedup
+
+Sequential	~11.79s	1x
+
+Parallel (4 cores)	3.97s	3x
+
+The parallel implementation provides nearly 3x performance improvement over sequential execution, reducing pipeline time from ~11.79 seconds to 3.97 seconds.
+
+Resource Optimization
+
+Automatic CPU core detection
+
+Platform-aware parallelization (optimized for Windows/Linux)
+
+Memory-efficient processing for large datasets
 
 # Sample Output:
 
