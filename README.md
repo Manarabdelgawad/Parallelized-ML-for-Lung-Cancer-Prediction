@@ -50,55 +50,34 @@ Performance Logging: records execution time per stage
 
 Easy Extensibility: plug in new preprocessing steps, feature selectors, or models
 
-Project Structure
+# Project Structure
 
-Parallelized-ML-for-Lung-Cancer-Prediction/
+```bashParallelized-ML-for-Lung-Cancer-Prediction/
 
 ├── config/
-
 │   ├── __init__.py
-
 │   └── settings.py  
 ├── data/
-
 │   └── lung_cancer.csv      # Dataset
-
 ├── src/
-
 │   ├── data/
-
 │   │   ├── loader.py        # Data loading 
-
 │   │   └── preprocessor.py  # Imputation, encoding, normalization
-
 │   ├── features/
-
 │   │   └── selector.py      # Feature selection 
-
 │   ├── models/
-
 │   │   └── trainer.py       # Model training & evaluation
-
 │   ├── utils/
-
 │   │   ├── decorators.py    # timing, caching
-
 │   │   └── logger.py         # logging setup
-
 │   └── pipeline/
-
 │       └── runner.py        # Orchestrates full pipeline
-
 ├── main.py                   # Entry point script
-
 ├── requirements.txt
-
 ├── pipeline.log              # Logs created by pipeline runs
-
 ├── .gitignore
-
 └── README.md
-
+```
 # Installation
 
 Prerequisites
