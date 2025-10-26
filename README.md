@@ -51,29 +51,52 @@ Performance Logging: records execution time per stage
 Easy Extensibility: plug in new preprocessing steps, feature selectors, or models
 
 Project Structure
+
 Parallelized-ML-for-Lung-Cancer-Prediction/
+
 ├── config/
+
 │   ├── __init__.py
-│   └── settings.py          # Pydantic configuration classes
+
+│   └── settings.py  
 ├── data/
+
 │   └── lung_cancer.csv      # Dataset
+
 ├── src/
+
 │   ├── data/
-│   │   ├── loader.py        # Data loading (with optional parallel support)
+
+│   │   ├── loader.py        # Data loading 
+
 │   │   └── preprocessor.py  # Imputation, encoding, normalization
+
 │   ├── features/
-│   │   └── selector.py      # Feature selection routines
+
+│   │   └── selector.py      # Feature selection 
+
 │   ├── models/
+
 │   │   └── trainer.py       # Model training & evaluation
+
 │   ├── utils/
-│   │   ├── decorators.py    # timing, caching, etc.
+
+│   │   ├── decorators.py    # timing, caching
+
 │   │   └── logger.py         # logging setup
+
 │   └── pipeline/
+
 │       └── runner.py        # Orchestrates full pipeline
+
 ├── main.py                   # Entry point script
+
 ├── requirements.txt
+
 ├── pipeline.log              # Logs created by pipeline runs
+
 ├── .gitignore
+
 └── README.md
 
 # Installation
@@ -85,15 +108,28 @@ Python 3.8+
 pip package manager
 
 Steps
-
+```bash
 git clone https://github.com/Manarabdelgawad/Parallelized-ML-for-Lung-Cancer-Prediction.git  
 cd Parallelized-ML-for-Lung-Cancer-Prediction  
-python -m venv venv  
-# On Linux/macOS:
-source venv/bin/activate  
-# On Windows:
-venv\Scripts\activate  
+```
+
+```bash
+python -m venv venv 
+```
+
+
+ On Linux/macOS:
+ ```bash
+source venv/bin/activate
+```
+ On Windows:
+```bash
+venv\Scripts\activate
+```
+```bash
 pip install -r requirements.txt
+```
+
 
 # Configuration
 
@@ -163,7 +199,9 @@ Features include:
 
 Demographics: GENDER, AGE
 
-Symptoms / Risk Factors: SMOKING, YELLOW_FINGERS, ANXIETY, PEER_PRESSURE, CHRONIC_DISEASE, FATIGUE, ALLERGY, WHEEZING, ALCOHOL_CONSUMING, COUGHING, SHORTNESS_OF_BREATH, SWALLOWING_DIFFICULTY, CHEST_PAIN
+Symptoms / Risk Factors: SMOKING, YELLOW_FINGERS, ANXIETY, PEER_PRESSURE, CHRONIC_DISEASE,
+FATIGUE, ALLERGY, WHEEZING, ALCOHOL_CONSUMING, COUGHING, 
+SHORTNESS_OF_BREATH, SWALLOWING_DIFFICULTY, CHEST_PAIN
 
 Target: LUNG_CANCER (YES / NO)
 
