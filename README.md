@@ -1,8 +1,8 @@
-# Lung Cancer Prediction — Parallelized ML Pipeline
+## Lung Cancer Prediction — Parallelized ML Pipeline
 
 A high-performance, parallelized machine-learning pipeline for lung cancer prediction using demographic and symptom data, built for scalability, maintainability, and speed.
 
-Table of Contents
+# Table of Contents
 
 Overview
 
